@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "DevBooks API",
+    "description": "Coleção de testes para a atividade de relacionamento 1:N entre autores e livros",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Criar Autor",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"George Orwell\",\n  \"biography\": \"Autor britânico conhecido por 1984 e A Revolução dos Bichos.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/authors",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["authors"]
+        }
+      }
+    },
+    {
+      "name": "Criar Livro",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"1984\",\n  \"release_year\": 1949,\n  \"author_id\": \"<ID_DO_AUTOR>\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["books"]
+        }
+      }
+    },
+    {
+      "name": "Listar Livros com Autores",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/books",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["books"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Livro",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"1984 - Edição Atualizada\",\n  \"release_year\": 1950\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/books/<ID_DO_LIVRO>",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["books", "<ID_DO_LIVRO>"]
+        }
+      }
+    },
+    {
+      "name": "Excluir Livro",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:3000/books/<ID_DO_LIVRO>",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["books", "<ID_DO_LIVRO>"]
+        }
+      }
+    }
+  ]
+}
